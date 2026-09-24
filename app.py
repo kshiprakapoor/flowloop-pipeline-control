@@ -217,21 +217,24 @@ The severe case is the important troubleshooting lesson: once the controller is 
 """
     )
 
-    st.markdown("### Why no AI?")
+   st.markdown("### What this demo shows")
 
-    st.write(
-        "This project is intentionally classical process control. The goal is to show "
-        "PI control, disturbance rejection, saturation, and the difference between "
-        "a controller problem and a process limitation."
-    )
+st.write(
+    "A controller can automatically compensate for moderate changes in the process. "
+    "But if a restriction becomes severe enough, the controller may reach its maximum "
+    "output and still be unable to maintain the requested flow. This illustrates an "
+    "important troubleshooting principle: sometimes the controller is working correctly, "
+    "but the physical process has become the limiting factor."
+)
 
-    st.markdown("### Interview explanation")
+st.markdown("### Try it yourself")
 
-    st.success(
-        "I built a small first-order pipeline-flow simulator because I wanted to understand "
-        "the process-control problem directly. A PI controller maintains a flow setpoint, "
-        "and I introduce a downstream restriction to see how the loop responds. In the mild "
-        "case the controller compensates by increasing its output. In the severe case the "
-        "controller saturates at 100%, but flow remains below setpoint, which shows that the "
-        "underlying process—not just controller tuning—can be the limiting factor."
-    )
+st.write(
+    "Compare the No Disturbance, Mild Restriction, and Severe Restriction cases. "
+    "Watch how the actual flow and controller output change, and experiment with the "
+    "controller tuning to see how different settings affect the system response."
+)
+
+st.caption(
+    "This demonstration uses a simplified synthetic process model for learning and visualization."
+)
