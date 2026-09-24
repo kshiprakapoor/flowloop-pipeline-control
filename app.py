@@ -182,16 +182,17 @@ with tab_explain:
 
     st.markdown(
         """
-- **Q** = flow rate  
-- **u** = controller output from 0 to 100%  
-- **K** = process gain / approximate flow capability  
-- **τ** = process time constant  
+- **Q** = flow rate
+- **u** = controller output from 0 to 100%
+- **K** = process gain / approximate flow capability
+- **τ** = process time constant
 
 Increasing the controller output increases flow, but the process does not respond instantly.
 """
     )
 
     st.markdown("### 2. PI controller")
+
     st.latex(r"u(t)=K_p e(t)+K_i\int e(t)\,dt")
     st.latex(r"e(t)=Q_{SP}-Q(t)")
 
@@ -208,33 +209,33 @@ error over time so the controller can remove persistent offset.
         """
 At **150 seconds**, the simulator can reduce the process gain:
 
-- **No disturbance:** full synthetic process capability
-- **Mild restriction:** capability drops, but the requested 1000 bbl/h is still achievable
-- **Severe restriction:** capability drops below 1000 bbl/h
+- **No disturbance:** normal process conditions
+- **Mild restriction:** flow capability decreases, but the controller can still recover
+- **Severe restriction:** flow capability drops below the requested flow
 
-The severe case is the important troubleshooting lesson: once the controller is at
-100% output, increasing PI gains cannot make the physical process deliver more flow.
+In the severe case, the controller reaches its maximum output but still cannot
+restore the requested flow.
 """
     )
 
-   st.markdown("### What this demo shows")
+    st.markdown("### What this demo shows")
 
-st.write(
-    "A controller can automatically compensate for moderate changes in the process. "
-    "But if a restriction becomes severe enough, the controller may reach its maximum "
-    "output and still be unable to maintain the requested flow. This illustrates an "
-    "important troubleshooting principle: sometimes the controller is working correctly, "
-    "but the physical process has become the limiting factor."
-)
+    st.write(
+        "A controller can automatically compensate for moderate changes in the process. "
+        "But if a restriction becomes severe enough, the controller may reach its maximum "
+        "output and still be unable to maintain the requested flow. This illustrates an "
+        "important troubleshooting principle: sometimes the controller is working correctly, "
+        "but the physical process has become the limiting factor."
+    )
 
-st.markdown("### Try it yourself")
+    st.markdown("### Try it yourself")
 
-st.write(
-    "Compare the No Disturbance, Mild Restriction, and Severe Restriction cases. "
-    "Watch how the actual flow and controller output change, and experiment with the "
-    "controller tuning to see how different settings affect the system response."
-)
+    st.write(
+        "Compare the No Disturbance, Mild Restriction, and Severe Restriction cases. "
+        "Watch how the actual flow and controller output change, and experiment with the "
+        "controller tuning to see how different settings affect the system response."
+    )
 
-st.caption(
-    "This demonstration uses a simplified synthetic process model for learning and visualization."
-)
+    st.caption(
+        "This demonstration uses a simplified synthetic process model for learning and visualization."
+    )
