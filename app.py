@@ -11,12 +11,14 @@ st.set_page_config(
 )
 
 st.title("FlowLoop")
-st.markdown("**A simple PI controller for maintaining pipeline flow under disturbances**")
+st.markdown("**A PI controller for maintaining pipeline flow under disturbances**")
 st.caption("Developed by Kshipra S. Kapoor, PhD")
 
 st.info(
-    "Educational controls demo only. This is a reduced-order synthetic process model, "
-    "not an ExxonMobil pipeline model and not suitable for operational use."
+    "Think of this like cruise control for a pipeline. You choose the desired flow rate, "
+    "and the controller automatically adjusts its output to keep the flow near that target. "
+    "Then you can introduce a downstream restriction and watch how the controller responds — "
+    "including what happens when the physical process can no longer achieve the requested flow."
 )
 
 tab_sim, tab_explain = st.tabs(["Run Simulation", "How It Works"])
